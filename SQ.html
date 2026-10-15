@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Request Coupon</title>
+
+    <style>
+      :root {
+        --pink: #ff4f87;
+        --dark-pink: #d92f65;
+        --cream: #fff8f1;
+        --ink: #2f2430;
+        --line: #f4b4c7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: linear-gradient(135deg, #ffd6e3, #fff1d7);
+      }
+
+      .coupon {
+        width: min(720px, 100%);
+        overflow: hidden;
+        border: 3px dashed var(--dark-pink);
+        border-radius: 22px;
+        background: var(--cream);
+        box-shadow: 0 18px 45px rgba(80, 30, 50, 0.22);
+      }
+
+      .top {
+        padding: 32px 30px 24px;
+        text-align: center;
+        color: white;
+        background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+      }
+
+      .top h1 {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        letter-spacing: 1px;
+      }
+
+      .top p {
+        margin: 10px 0 0;
+        font-size: 1.05rem;
+      }
+
+      .content {
+        padding: 30px;
+        text-align: center;
+      }
+
+      .coupon-label {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 7px 13px;
+        border-radius: 999px;
+        color: var(--dark-pink);
+        background: #ffe0e9;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .message {
+        margin: 0 auto 22px;
+        max-width: 560px;
+        font-size: 1.2rem;
+        line-height: 1.65;
+      }
+
+      .details {
+        margin: 22px auto;
+        max-width: 520px;
+        border-top: 2px dashed var(--line);
+        border-bottom: 2px dashed var(--line);
+        text-align: left;
+      }
+
+      .detail {
+        display: flex;
+        gap: 12px;
+        padding: 14px 4px;
+        border-bottom: 1px solid #f7d6df;
+      }
+
+      .detail:last-child {
+        border-bottom: none;
+      }
+
+      .detail strong {
+        min-width: 100px;
+        color: var(--dark-pink);
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      button {
+        border: none;
+        border-radius: 999px;
+        padding: 13px 22px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition:
+          transform 0.18s ease,
+          filter 0.18s ease;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        filter: brightness(0.96);
+      }
+
+      .yes {
+        color: white;
+        background: var(--dark-pink);
+      }
+
+      .response {
+        min-height: 28px;
+        margin: 22px 0 0;
+        color: var(--dark-pink);
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      .fine-print {
+        margin: 26px 0 0;
+        color: #7d6872;
+        font-size: 0.85rem;
+      }
+
+      @media print {
+        body {
+          padding: 0;
+          background: white;
+        }
+
+        .coupon {
+          width: 100%;
+          box-shadow: none;
+        }
+
+        .buttons,
+        .response {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="coupon">
+      <section class="top">
+        <h1>✨Official Date Coupon✨</h1>
+        <p>Redeemable for an excellent time together</p>
+      </section>
+
+      <section class="content">
+        <div class="coupon-label">For: Princess Shiqi</div>
+
+        <p class="message">
+          Hi <i>Shiqi</i>, I would really like to take you on a date. Would you
+          like to have a fun day together?
+        </p>
+
+        <div class="details">
+          <div class="detail">
+            <strong>Date idea:</strong>
+            <span>Dinner, Mocktail, Science Museum 🤓</span>
+          </div>
+
+          <div class="detail">
+            <strong>When:</strong>
+            <span>10/17/2026 @ 2:30PM</span>
+          </div>
+
+          <div class="detail">
+            <strong>Hosted by:</strong>
+            <span>Your BF HB</span>
+          </div>
+
+          <div class="detail">
+            <strong>Requirements:</strong>
+            <span> None. Just ur pretty face and fire fashion 🔥 </span>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button
+            class="yes"
+            onclick="respond('YES! I would love to go on a date with you 💖')"
+          >
+            Accept Coupon 💕
+          </button>
+        </div>
+
+        <p id="response" class="response"></p>
+
+        <p class="fine-print">
+          Valid for good conversation, good food, and good vibes.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      function respond(message) {
+        document.getElementById("response").textContent = message;
+      }
+    </script>
+  </body>
+</html>
